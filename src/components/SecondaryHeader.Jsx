@@ -28,7 +28,7 @@ import { allCategories, navigation } from '@/data';
 
 
 const HeaderNavigationLinks = ({ dataToMap }) => {
- 
+  console.log("HeaderNavigationLinks-dataToMap", dataToMap)
   return (
     <div>
       {/* Body and Bath */}
@@ -37,22 +37,23 @@ const HeaderNavigationLinks = ({ dataToMap }) => {
       </div>
 
       {/* Hair */}
-      <li className="nav-top-category tc-top-category is-dropdown-submenu-parent opens-right" data-tc-category-name="hair" role="menuitem" aria-haspopup="true" aria-label="cheveux" data-is-click="false">
-        <a className="js-tc-nav-click-event top-category-link text-center has-sub-menu " style={{ '-topCategoryLinkColor': 'black' }} href="https://www.sephora.fr/shop/cheveux-c307/?listview=true">
+      <div className="nav-top-category tc-top-category is-dropdown-submenu-parent opens-right" data-tc-category-name="hair" role="menuitem" aria-haspopup="true" aria-label="cheveux" data-is-click="false">
+        {/* <a className="js-tc-nav-click-event top-category-link text-center has-sub-menu " style={{ '-topCategoryLinkColor': 'black' }} href="https://www.sephora.fr/shop/cheveux-c307/?listview=true">
           Cheveuxxxx
-        </a>
+        </a> */}
         <ul className="top-category-menu menu-vertical menu submenu is-dropdown-submenu first-sub vertical fully-loaded" data-submenu role="menubar" style={{}}>
           <div className="nav-level-3-wrapper">
-   
-          {dataToMap.map((category, index) => { 
-              console.log("CATEGORY-CONTENT", category.categoryContent)
-             
-                   return  <MobileLinks dataToMap={allCategories}  /> 
+      <MobileLinks categories={navigation}  /> 
+          {/* {dataToMap.categories.map((category, index) => { 
+              console.log("CATEGORY-CONTENT", category)
+           return   */}
+           {/*
+                  //  return  <MobileLinks  dataToMap={allCategories}  /> 
             
-             })} 
+            //  })}  */}
           </div>
         </ul>
-      </li>
+      </div>
 
     </div>
   );

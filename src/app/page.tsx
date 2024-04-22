@@ -70,7 +70,7 @@ export default function HomePage() {
 
 
     <WelcomeScreen />
-      <div className="lg:grid lg:auto-rows-min lg:grid-cols-12 lg:gap-x-8">
+      {/* <div className="lg:grid lg:auto-rows-min lg:grid-cols-12 lg:gap-x-8 relative">
         <div className="lg:col-span-5 lg:col-start-8">
           <ProductInfo />
         </div>
@@ -89,7 +89,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      <Reviews />
+      <Reviews /> */}
       <RelatedProducts />
       <div className="bg-crema lg:p-smm">
   <div className="flex justify-between flex-col-reverse lg:flex-row">

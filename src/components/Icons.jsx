@@ -776,8 +776,8 @@ export const icons = {
   export default function Icon({children,  size,  bg, iconName, customClass}) {   
 
      let icon = icons[iconName]
-    console.log("ICON-NAME", icons[iconName])
-    console.log("ICON", icon)
+    // console.log("ICON-NAME", icons[iconName])
+    // console.log("ICON", icon)
 
     return (  <span className={classNames(customClass)}
         >

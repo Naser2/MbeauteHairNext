@@ -106,7 +106,7 @@ const countries = [
   
 
   export const SubscribeComponent = () => {
-    return     ( <div id="main" role="main" className="page-content clearfix main-content">
+    return     ( <div id="SUBCRIBTION-MODAL-or-PAGE" role="main" className=" bg-white page-content clearfix main-content">
     <div className="content">
       <div id="primary" className="primary-content column medium-12 small-12">
         <div className="login-page-wrapper">
@@ -336,7 +336,7 @@ const countries = [
 
   
 export const CountrySelector = ({countryPickerIsOpen, handleCountryPickerIsOpen}) => {
-    console.log("CountrySELECTOR --FIred")
+    // console.log("CountrySELECTOR --FIred")
   return (
     <div className={classNames(`${countryPickerIsOpen ? "ui-dialog ui-corner-all ui-widget ui-widget-content ui-front popup-dialog-layer language-selector-dialog" : 'hidden' }`)} role="dialog" aria-describedby="languages-dialog-container" aria-labelledby="ui-id-2">
       <div className="ui-dialog-titlebar ui-corner-all ui-widget-header ui-helper-clearfix">
@@ -840,7 +840,7 @@ useEffect(() =>{
   setUser(true)
     }, [user])
     return (
-      <nav className="nav">
+      <nav className="nav z-40">
         <div id="wrapper" className="pt_account_login newsubscription-wrapper">
           {/* <SectionLoader countryPickerIsOpen={countryPickerIsOpen} handleCountryPickerIsOpen={handleCountryPickerIsOpen}/> */}
           <header>
@@ -1071,7 +1071,7 @@ useEffect(() =>{
         <MobileSideNavigation  navigationOpen={navigationOpen} handleSetNavigationIsOpen={handleSetNavigationIsOpen}/>
           <label className="mobile-background" htmlFor="mobile-navigation" onClick={handleSetNavigationIsOpen} />
         {/* <SomeNavigationIcons/> */}
-        <SubscribeComponent />
+        
           <div className="back-to-top-btn">
             <div className="arrow" />
           </div>
@@ -1403,7 +1403,7 @@ export const MobileSideNavigation = ({user,navigationOpen,handleSetNavigationIsO
        {/* <FancyLoader /> */}
       <div className='menu-wrapper'>
         {/* <FAQ /> */}
-      {/* <HeaderNavigationLinks  dataToMap={navigation}/> */}
+      <HeaderNavigationLinks  dataToMap={navigation}/>
       {/* {  menuItems.map((menuItem, index) => (
        <> 
 
@@ -1417,7 +1417,9 @@ export const MobileSideNavigation = ({user,navigationOpen,handleSetNavigationIsO
              */}
             </div>
     </div>
-    <ul className="absolute bottom-0 vertical menu accordion-menu access-menu">
+
+    {/* ADD ITEM or CREATE BUTTON */}
+    {/* <ul className="absolute bottom-0 vertical menu accordion-menu access-menu">
           <li className="access-menu-item mobile-header show-for-small hide-for-mlarge mr-0">
             <div className="selected-site dropdown-with-arrow language-selector-arrow custom-language-selector-arrow burger-menu-entry js-show-languages-modal top-left">
               <UserIcon navigationOpen={navigationOpen} user={user}/>
@@ -1428,22 +1430,18 @@ export const MobileSideNavigation = ({user,navigationOpen,handleSetNavigationIsO
                 defaultValue="Customer - Name"
               />     
                <div className='ml-4' style={{"justify-content": "flex-end"}}> 
-               {/* <OpenButton/> */}
+               <OpenButton/>
             
 
                <Example/>
                </div><span className='top-right '>
                 
-            {/* <CloseButton  handleSetNavigationIsOpen={handleSetNavigationIsOpen}/> */}
+        
             </span>   
           </div>
           
           </li>
-    
-          
-          {/* <button class="text-xs leading-5 font-semibold bg-slate-400/10 rounded-full py-1 px-3 flex items-center space-x-2 hover:bg-slate-400/20 dark:highlight-white/5" id="headlessui-menu-button-:Racr6:" type="button" aria-haspopup="menu" aria-expanded="false" data-headlessui-state="">v3.4.3<svg width="6" height="3" class="ml-2 overflow-visible" aria-hidden="true"><path d="M0 0L3 3L6 0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></button>
-          <Button  bg={"bg-black"}  color="cyan">Add item</Button> */}
-        </ul>
+        </ul> */}
   </nav>
 }
 

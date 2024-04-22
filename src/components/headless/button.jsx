@@ -207,7 +207,7 @@ const styles = {
     styles.outline ? styles.outline : plain ? styles.plain :  clsx(styles.solid, styles.colors[color ?? 'dark/zinc']), 
 
   )
-  console.log("ICONE-NAME: " + iconName)
+  // console.log("ICONE-NAME: " + iconName)
 
   return 'href' in props ? (
     <Link {...props} className={classes} ref={ref}>
