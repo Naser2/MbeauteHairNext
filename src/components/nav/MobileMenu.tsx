@@ -171,7 +171,7 @@ export function MobileLinks({categories}) {
   return ( <>
   <Tab.Group as="div" className="w-full">
 
-    <div className="border-b border-gray-200   w-full">
+    <div className="border-b border-gray-200 mt-1  w-full">
       <Tab.List className="-mb-px   px-0 inline-flex  w-full">
       { categories.categories.map((category, index) => {
           console.log("CATEGORIY-TAB", category)
@@ -180,7 +180,7 @@ export function MobileLinks({categories}) {
               className={({ selected }) =>
                 classNames(
                   selected
-                    ? "bg-black border-creaam-1 text-white w-[200px]"
+                    ? "selected-bg border-creaam-1 text-white w-[200px]"
                     : "border-transparent text-black  w-2/3",
                   "flex-1 whitespace-nowrap border-b-2 py-4  !pb-2 text-lg font-medium "
                 )
@@ -303,7 +303,7 @@ export const CorporateMenu = () => {
             aria-hidden="false"
             tabIndex="0"
           >
-            <span data-test={`lnkAxisCategory_${item.name}`}>{item.name}</span>
+            <span data-test={`lnkAxisCategory_${item.name}`}   className="text-left">{item.name}</span>
             <svg
               className="icon is-xsmall is-arrow is-arrowsmallright"
               focusable="false"
@@ -364,7 +364,7 @@ export const CorporateMenu = () => {
                           <a
                             href={item.href}
                             data-linkname={item.name}
-                            className="js-header-secondary-link"
+                            className="js-header-secondary-link text-left"
                             data-test={`lnkLevelThreeCategory_ByCategory_${index}`}
                             data-event-action={item.name}
                             data-event-label={item.name}

@@ -8,7 +8,7 @@ import { useState, useEffect } from 'react';
 import Button  from '@/components/headless/button'
 
 import  LoggedInUserImage from '@/assets/images/profile.png'
-
+import  AuthenticatedUserImage from '@/assets/images/AuthenticatedUserImage.png'
 import FAQ from "./FAQ";
 import SecondaryHeader from './SecondaryHeader'
 import { allCategories, navigation } from '@/data';
@@ -223,7 +223,7 @@ const countries = [
                     </strong>
                   </p>
                   <ul
-                    className="accordion"
+                    className="accordion "
                     data-responsive-accordion-tabs="accordion"
                     data-allow-all-closed="true"
                     id="tqk7h8-responsiveaccordiontabs"
@@ -676,15 +676,16 @@ const Hamburger = (handleSetNavigationIsOpen) => {
   );
 }
 const MobileHeader = ({user, navigation, navigationOpen, handleSetNavigationIsOpen, advertissment}) => {
+  console.log("MobileHeader-OPEN ??", navigationOpen, "ADVETISSEMENT", advertissment)
  return  <div
-  className={classNames(`${navigationOpen  && advertissment  && 'inset-x-0 z-40 animationTranfrom'} mobile-header show-for-small hide-for-mlarge`)}
+  className={classNames(`${navigationOpen  && advertissment  && 'inset-x-0 z-40 animationTranfrom'}   ${navigationOpen ? '!bg-white' : "bg-transparent" }  mobile-header show-for-small hide-for-mlarge`)}
   style={{}}
 >
   <div className="header-top">
     <div className="top-left ml-4">
 
    <UserIcon navigationOpen={navigationOpen} user={user}/>
-    <LogoMobile user={user} />
+    <LogoMobile user={user} navigationOpen={navigationOpen}/>
     </div>
     <div className="top-center hide-for-small-only">
       <div className="header-search search-auto-complete">
@@ -742,7 +743,7 @@ const MobileHeader = ({user, navigation, navigationOpen, handleSetNavigationIsOp
       </div>
      { user && <BellAndUser handleSetNavigationIsOpen={handleSetNavigationIsOpen}/>}
 {/* -----CART ----- */}
-      <Cart iconName="cartIcon"/>
+      <Cart iconName="cartIcon" />
 
          {/* <div
         className="header-item header-layer header-item-minicart"
@@ -821,7 +822,7 @@ const MobileHeader = ({user, navigation, navigationOpen, handleSetNavigationIsOp
 const Header = ({ items }) => {
     const [countryPickerIsOpen, setCountryPickerIsOpen] = useState(false);
     const [navigationOpen, setNavigationOpen] = useState(false);
-    const [user, setUser] = useState(true);
+    const [user, setUser] = useState(false);
     const [advertissment, setAadvertissment] = useState(false);
   
     // useEffect(() =>{ 
@@ -875,13 +876,13 @@ useEffect(() =>{
                 </div>
               </div>
             </div>}
-            <div className="sticky-top sticky-top-static nav">
+            <div className={classNames("sticky-top sticky-top-static nav sm:mb-0")}>
               <div
                 className="cookie-policy text-center"
                 style={{ display: "block" }}
               ></div>
     
-           <MobileHeader navigationOpe={navigationOpen} handleSetNavigationIsOpen={handleSetNavigationIsOpen} user={user} advertissment={advertissment}  />
+           <MobileHeader navigationOpen={navigationOpen} handleSetNavigationIsOpen={handleSetNavigationIsOpen} user={user} advertissment={advertissment}  />
             </div>
             <div className="row desktop-header show-for-mlarge align-justify w-full">
               <div className="language-search-wrapper">
@@ -1346,20 +1347,27 @@ const UserIcon = ({user, navigationOpen })=> {
     
      </div> 
      {navigationOpen &&  <span className="hide-for-medium px-4 text-gray-400 underline "> Login to see offers </span>}
-  </> : <> <div id ="AUTHENTICATED_IN_USER" class="mt-1 mb-1 block flex items-center gap-2  lg:mt-6 lg:px-4 lg:px-4">
+  </> : <> <div id ="AUTHENTICATED_IN_USER" class="mt-1 mb-1 block flex items-center gap-2 lg:mt-6 lg:px-4 lg:px-4">
       <div id="icon"  class="inline-flex">
-       
-      <Image
-          className="h-8 w-8 rounded-full object-cover"
-          src={LoggedInUserImage}
-          alt="user icon"
-          // src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=80"
-        />
+   
+     {navigationOpen  ?  user &&  <Image
+      className="h-9 w-9 sm:w-12 sm:w-12 rounded-full object-cover ring-2 ring-orange-300"
+      src={AuthenticatedUserImage}
+      alt="user icon"
+      width={64}
+      height={64}
+      // src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=80"
+    /> :  " d"
+   }    
+    
         {/* <img alt="user icon" src="../assets/images/profile.png" width="4883" height="3255" decoding="async" data-nimg="1" class="h-12 w-12 rounded-full object-covern country-selector-image" loading="lazy"/> */}
       
        </div>
       </div>
-       { navigationOpen && <span className="hide-for-medium px-4"> Nasser Sanou</span>}</>}
+       {/* { navigationOpen && <LogoMobile />
+       } */}
+       </>}
+
   </>
 } 
 function Example() {
@@ -1370,25 +1378,28 @@ function Example() {
 //   htmlFor="mobile-navigation"
 //   className="menu-togglee p-4 sm:bg-white"
 //   id="menu-togglee"
-// ><span aria-label="Close menu"  id="menu-togglee"  htmlFor="mobile-navigation" class="menu-toggle_menuToggle__6OaWw mobile-menu-button_indicator__mGvzn avatar-mobile-menu_button__YEcob rounded-full ring-1 ring-black" data-expanded="false" data-testid="mobile-menu/trigger" type="button">
+// ><span aria-label="Close menu"  id="menu-togglee"  htmlFor="mobile-navigation" class="menu-toggle_menuToggle__6OaWw mobile-menu-button_indicator__mGvzn avatar-mobile-menu_button__YEcob rounded-full hover:hover:ring-1 hover:ring-black" data-expanded="false" data-testid="mobile-menu/trigger" type="button">
 //   <div class="menu-toggle_bar__GUd1o" data-position="top"></div>
 // <div class="menu-toggle_bar__GUd1o" data-position="bottom"></div> </span>
 //     </label>
 // }
-const OpenButton = ({handleSetNavigationIsOpen}) => {
+const OpenButton = ({navigationOpen, handleSetNavigationIsOpen}) => {
   return (
     <>
     <NavTriggerComponent />
     <label onClick={handleSetNavigationIsOpen}
-  htmlFor="mobile-navigation"
-  className="menu-togglee p-4 sm:bg-white"
-  id="menu-togglee"
-><span aria-label="Close menu"  id="menu-togglee"  htmlFor="mobile-navigation" className="navTrigger menu-toggle_menuToggle__6OaWw mobile-menu-button_indicator__mGvzn avatar-mobile-menu_button__YEcob rounded-full ring-1 ring-black" data-expanded="false" data-testid="mobile-menu/trigger" type="button">
-        <div class="menu-toggle_bar__GUd1o" data-position="top"></div>
-        <div class="menu-toggle_bar__GUd1o" data-position="bottom"></div>
-        <div class="menu-toggle_bar__tree" data-position="middle"></div>
-        </span>
-    </label></>)
+      htmlFor="mobile-navigation"
+      className="menu-togglee p-4 sm:bg-white"
+      id="menu-togglee"
+    ><span aria-label="Close menu"  id="menu-togglee"  htmlFor="mobile-navigation" 
+      className={classNames(navigationOpen ? 'ring-black' : 'ring-white', "navTrigger menu-toggle_menuToggle__6OaWw mobile-menu-button_indicator__mGvzn avatar-mobile-menu_button__YEcob rounded-full ring-1 hover:hover:ring-black")}
+      data-expanded="false" data-testid="mobile-menu/trigger" type="button">
+              <div class="menu-toggle_bar__GUd1o" data-position="top"></div>
+              <div class="menu-toggle_bar__GUd1o" data-position="bottom"></div>
+              <div class="menu-toggle_bar__tree" data-position="middle"></div>
+              </span>
+          </label>
+          </>)
 }
 
 
@@ -1791,15 +1802,58 @@ export const NavbarHeaderUserFlyoutComponent =({})=> {
   </div>
 }
 
-const LogoMobile = ({navigationOpen, user}) => {
-    return <>{navigationOpen && !user &&  <div className="logo-mobile">
+// const LogoMobile = ({navigationOpen, user}) => {
+//   // alert("NavigationOpen" + navigationOpen)
+//     return <>{navigationOpen  && !user ?
+//     <div className="logo-mobile"> 
+//      <text x="51%" y="50%" text-anchor="middle" font-size="48" fill="#000000"  className={classNames(`${navigationOpen  ? "text-black" : "text-white", "LogoText" }`)}>
+//       MASSI</text>
+// </div> : <div className="logo-mobile"> 
+//      <text x="50%" y="50%" text-anchor="middle" font-size="48" fill="#000000"  className={classNames(`${!navigationOpen  &&  "text-white LogoText" }`)}>
+//       MAssSSI</text>
+// </div>}</>
+//     //  <text x="50%" y="50%" text-anchor="middle" font-size="48" fill="#000000" font-family="Arial" className={classNames(`${navigationOpen  ? "text-black" : "text-white","LogoText" }`)}></text>
 
-    <text x="50%" y="50%" text-anchor="middle" font-size="48" fill="#000000" font-family="Arial" className='LogoText'>MASSI</text>
-</div>}</>
+
+// }
 
 
-}
-export default Header;
+
+export  const LogoMobile = ({ navigationOpen, user }) => {
+  const [logoColor, setLogoColor] = useState('text-white');
+
+  useEffect(() => {
+    console.log("NAVIGATION LOGOB",  navigationOpen, "USER-->", user);
+    // Check if navigation is open and user is not logged in
+    if (navigationOpen && !user) {
+      setLogoColor('text-black');
+    }
+    //  else if (navigationOpen && user) {
+    //   setLogoColor('text-black');
+    // }
+     else {
+      setLogoColor('text-white');
+    }
+  }, [navigationOpen, user]);
+
+  return (
+    <div className="logo-mobile">
+      <text
+        x="51%"
+        y="50%"
+        textAnchor="middle"
+        fontSize="48"
+        fill="#000000"
+        className={classNames('LogoText', logoColor)}
+      >
+        {navigationOpen && !user ? '' : 'MASSI'}
+      </text>
+    </div>
+  );
+};
+
+
+export default Header
 
 // menuItems.map((menuItem, index) => (
 //     <div className="menu-item" key={index}>
@@ -2021,7 +2075,7 @@ const menuItems = [
 
     const BottomTabs =()=> {
     return  ( 
-    <div class="w-full h-screen">
+    <div class="w-full ">
 <section id="bottom-navigation" class="md:hidden block fixed inset-x-0 bottom-0 z-10 bg-white shadow"/> 
 	<section id="bottom-navigation" class="block fixed inset-x-0 bottom-0 z-10 bg-white shadow">
 		<div id="tabs" class="flex justify-between">
@@ -2094,7 +2148,7 @@ const menuItems = [
   const BellAndUser = function({handleSetNavigationIsOpen}){
       
         return (
-          <label className="stack_stack__iZkUS stack inline-flex p-4 sm:p-1" data-version="v1" style={{
+          <label className="stack_stack__iZkUS stack inline-flex p-4 sm:p-1 " data-version="v1" style={{
             '-stackFlex': 'initial',
             '-stackDirection': 'row',
             '-stackAlign': 'center',
@@ -2103,7 +2157,7 @@ const menuItems = [
             '-stackGap': '8px'
           }}>
             <div className=''>
-              <button   className="mx-2 bell_btn__yil2q ring-1 ring-black rounded-full mt-[0.2em]"
+              <button   className="mx-2 bell_btn__yil2q hover:ring-1 hover:ring-black rounded-full mt-[0.2em] hover:bg-white"
                 type="button"
                 aria-haspopup="dialog"
                 aria-expanded="false"

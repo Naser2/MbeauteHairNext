@@ -3,11 +3,28 @@ import {
   GlobeAmericasIcon,
 } from "@heroicons/react/24/outline";
 
+import massi_hero_part3_mobile from "./assets/images/heros/massi_hero_part3_mobile.png";
+import massi_hero_part3_desktop from "./assets/images/heros/massi_hero_part3_desktop.png";
 export const navigation = {
   categories: [
     {
       id: "services",
       name: "Services",
+      hero: {
+        desktop: {
+          srcSet: massi_hero_part3_desktop.src,
+          sizes: '(min-width: 601px) 640px, 100vw',
+        },
+        mobile: {
+          srcSet:massi_hero_part3_mobile.src,
+          sizes: '320px',
+        },
+         alt: 'Hero Image',
+         title: 'CHOCOLATE MADEMOISELLE',
+          subtitle: 'SERVICES ',
+          href: '/coco-mademoiselle',
+          cta:'Discover all'
+        },
       featured:[ 
         { id:"_jigazxdelt3",
           name: "Hair & Eyelashes Bundle",
@@ -68,6 +85,21 @@ export const navigation = {
     {
       id: "accessories",
       name: "Accessories",
+      hero: {
+        desktop: {
+          srcSet: 'https://example.com/desktop-image.jpg',
+          sizes: '(min-width: 601px) 640px, 100vw',
+        },
+        mobile: {
+          srcSet: 'https://example.com/mobile-image.jpg',
+          sizes: '320px',
+        },
+         alt: 'Hero Image',
+         title: 'MASSI ACCESSOIRIES',
+          subtitle: 'New glow',
+          href: '/services',
+          cta:'Discover all'
+        },
       featured: [
         { id:"_gdsigmzxdeler",
           name: "Season Discount",
@@ -264,7 +296,22 @@ export const allCategories = [
   },
   
   {  id:"services",
-     name: "Services",
+     name: "Seuurvices",
+     hero: {
+      desktop: {
+        srcSet: 'https://example.com/desktop-image.jpg',
+        sizes: '(min-width: 601px) 640px, 100vw',
+      },
+      mobile: {
+        srcSet: 'https://example.com/mobile-image.jpg',
+        sizes: '320px',
+      },
+       alt: 'Hero Image',
+       title: 'CHOCOLATE MADEMOISELLE',
+        subtitle: 'New glow',
+        href: '/coco-mademoiselle'
+      },
+    
   categoryContent: [  
  { section:"Overall", sectionItems: [ { nav_link_name: "Voir tout", href: "/voir_tout" }, { nav_link_name: "-25% sur une sélection soin cheveux", href: "/-25%_sur_une_selection_soin_cheveux" },
       { nav_link_name: "Beauty Days Cheveux", href: "/beauty_days_cheveux" }, { nav_link_name: "Nouveautés", href: "/nouveautes" },
@@ -315,4 +362,62 @@ export const allCategories = [
 },
  
   // Add more categories as needed
+];
+export const dispatchData = [
+  {
+    title: "MODE & ACCESSOIRES",
+    subtitle: "Commander",
+    href: "/fr_fr/fashion",
+    src: "https://www.dior.com/couture/var/dior/storage/images/horizon/home-one-dior/dispatch-odd/cdc-dispatch/29493231-133-fre-FR/cdc-dispatch_1440_1200.jpg?imwidth=460",
+    alt: ""
+  },
+  {
+    title: "PARFUM & BEAUTÉ",
+    subtitle: "Commander",
+    href: "/fr_fr/beauty",
+    src: "https://www.dior.com/couture/var/dior/storage/images/horizon/home-one-dior/dispatch-odd/pcd-dispatch/40468986-25-fre-FR/pcd-dispatch_1440_1200.jpg?imwidth=460",
+    alt: ""
+  }
+];
+
+
+ 
+
+
+export const proucdtsTeaser = [
+  {
+    title: "Grand flacon, au prix du petit",
+    description: "Profitez du grand format au prix d'un plus petit.*",
+    href: "https://www.sephora.fr/grand-flacon-petit-prix/",
+    src: "https://www.sephora.fr/on/demandware.static/-/Library-Sites-SephoraV2/default/dwc1e011ba/SN-9383-FR-UNDERBANNER.jpg",
+    alt: "Grand flacon, au prix du petit",
+    ctaText: "Découvrir",
+    legalMention: "*Sur une sélection de parfums.."
+  },
+  {
+    title: "New IN Rare Beauty",
+    description: "Couleur intense & fini soyeux pour un effet bonne mine.",
+    href: "https://www.sephora.fr/p/718880.html",
+    src: "https://www.sephora.fr/on/demandware.static/-/Library-Sites-SephoraV2/default/dwe435e125/SN-9293-FR-UNDERBANNER.jpg",
+    alt: "New IN Rare Beauty",
+    ctaText: "Découvrir",
+    legalMention: "New in = nouveau."
+  },{
+    title: "Grand flacon, au prix du petit",
+    description: "Profitez du grand format au prix d'un plus petit.*",
+    href: "https://www.sephora.fr/grand-flacon-petit-prix/",
+    src: "https://www.sephora.fr/on/demandware.static/-/Library-Sites-SephoraV2/default/dwc1e011ba/SN-9383-FR-UNDERBANNER.jpg",
+    alt: "Grand flacon, au prix du petit",
+    ctaText: "Découvrir",
+    legalMention: "*Sur une sélection de parfums.."
+  },
+  {
+    title: "New IN Rare Beauty",
+    description: "Couleur intense & fini soyeux pour un effet bonne mine.",
+    href: "https://www.sephora.fr/p/718880.html",
+    src: "https://www.sephora.fr/on/demandware.static/-/Library-Sites-SephoraV2/default/dwe435e125/SN-9293-FR-UNDERBANNER.jpg",
+    alt: "New IN Rare Beauty",
+    ctaText: "Découvrir",
+    legalMention: "New in = nouveau."
+  }
 ];

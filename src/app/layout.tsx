@@ -40,7 +40,7 @@ export default function RootLayout({
       <body className="bg-white">
         {/* <Navbar/> */}
         <Header items={items} />
-        <MobileMenu />
+        {/* <MobileMenu /> */}
         {/* <Header /> */}
         {children}
         <Footer />

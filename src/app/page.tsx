@@ -7,11 +7,18 @@ import { Policies } from "@/components/product/Policies";
 import { Reviews } from "@/components/product/Reviews";
 import { RelatedProducts } from "@/components/product/RelatedProducts";
 import { AddToCart } from "@/components/product/AddToCart";
-import CoPortfolio  from "@/components/CoPortfolio";
+import AboutSection  from "@/components/AboutSection";
 import CocoChanel from "@/components/CocoChanel";
 import WelcomeScreen from "@/components/WelcomeScreen";
 import Header from '@/components/SephoHeader'; // Import the Header component
-
+import SlidingHeroContainer from '@/components/SlidingHeroContainer'; // Import the Header component
+import TestButton from '@/components/TestButton';
+import DispatchElements from '@/components/DispatchElements';
+import { dispatchData, navigation, proucdtsTeaser } from "@/data";
+import ImageHero from '@/components/ImageHero'
+import ProductCardDisplay from '@/components/ProductCardDisplay'
+import TestimonialSection from '@/components/TestimonialSection'
+import FadeInSection from '@/utils/FadeInSection'
 const items = [
   {
     id: 'account',
@@ -21,17 +28,93 @@ const items = [
   },
   // Add more items as needed
 ];
+const heroImages = [
+ {
+  title: "La Haute Horlogerie de CHANEL",
+  image: {
+      imageSrc: "https://www.chanel.com/puls-img/c_limit,w_3200/q_auto:good,dpr_auto,f_auto/1710838915277-onehpcorpodslidinghero2880x1260px51jpg_1260x2880.jpg",
+      imageAlt: "Image of Haute Horlogerie",
+      mobileImageSrc:"https://www.chanel.com/puls-img/1710838915022-onehpcorpomslidinghero1125x1500px41jpg_1500x1125.jpg",
+  },
 
+  subtitle: "Haute Horlogerie",
+  button: {
+      label: "Voir plus",
+      link: "/fr/horlogerie/haute-horlogerie/"
+  }
+}
+// ,{
+//   title: "La Haute Horlogerie de CHANEL",
+//    image: {
+//     imageSrc: "https://www.chanel.com/puls-img/c_limit,w_3200/q_auto:good,dpr_auto,f_auto/1710838915277-onehpcorpodslidinghero2880x1260px51jpg_1260x2880.jpg",
+//      imageAlt: "Image of Haute Horlogerie",
+//      mobileImageSrc:"https://www.chanel.com/puls-img/1710838915022-onehpcorpomslidinghero1125x1500px41jpg_1500x1125.jpg",
+//     },
+
+//   subtitle: "MAQUILLAGE",
+  
+//     button: {
+//           label: "Découvrir",
+//           link: "/fr/maquillage/rouge-allure-velvet/"
+//       }
+// }
+]
 
 export default function HomePage() {
   return (
-    <main className=" lg:max-w max-w-none ">
+    <main className="lg:max-w max-w-none ">
+      <div className="relative min-h-65 p-10 flex w-full SlidingHeroContainer_ForwardLink_root__EtbqJ__eBvMq pt-44"></div>
+    {/* <TestButton>Hello Test</TestButton> */}
+      <section className="relative mt-14">
+        {heroImages.map((heroData, index) => (  <SlidingHeroContainer key={index} heroData={heroData}/> ))}
+        </section>
+        <DispatchElements data={dispatchData} />
+        {/* TWO GRID HERE */}
+        {/* SERVIcES  */}
+       
+        {navigation.categories.map((assetsCategories, index) => {
+  const Services = assetsCategories.name =='Services' ? assetsCategories : null;
+  console.log("SERVICESssss " + Services)
+  //  const ServicesHero = Services.hero
+  if (Services) {
+    const { hero } = Services;
+    if (hero) {
+      return (
+        <ImageHero
+          imageSrcDesktop={hero.desktop.srcSet}
+          imageSrcMobile={hero.mobile.srcSet}
+          title={hero.title}
+          subtitle={hero.subtitle}
+          href={hero.href}
+          alt={hero.alt}
+          sizes="(min-width: 601px) 640px, 100vw"
+          key={index}
+          cta={hero.cta}
+        />
+      );
+    } else {
+      return (
+        <h1 key={index}>Missing Services Image to display</h1>
+      );
+    }
+  }
+})}
+          
+        
+       
 
 {/* <Header items={items} /> */}
 
 
-{/* <CocoChanel />
-<CoPortfolio /> */}
+  <CocoChanel />
+
+  <FadeInSection>
+    <ProductCardDisplay productsSample={proucdtsTeaser} />
+  </FadeInSection>  
+
+    <TestimonialSection/>
+     
+    <AboutSection />
 
      {/* <div id="welcome-screen-foreground">
       <div id="welcome-screen-logo">
@@ -70,7 +153,7 @@ export default function HomePage() {
 
 
     <WelcomeScreen />
-      {/* <div className="lg:grid lg:auto-rows-min lg:grid-cols-12 lg:gap-x-8 relative">
+      <div className="lg:grid lg:auto-rows-min lg:grid-cols-12 lg:gap-x-8 relative">
         <div className="lg:col-span-5 lg:col-start-8">
           <ProductInfo />
         </div>
@@ -89,7 +172,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      <Reviews /> */}
+      <Reviews />
       <RelatedProducts />
       <div className="bg-crema lg:p-smm">
   <div className="flex justify-between flex-col-reverse lg:flex-row">
