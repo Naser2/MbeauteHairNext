@@ -14,11 +14,12 @@ import Header from '@/components/SephoHeader'; // Import the Header component
 import SlidingHeroContainer from '@/components/SlidingHeroContainer'; // Import the Header component
 import TestButton from '@/components/TestButton';
 import DispatchElements from '@/components/DispatchElements';
-import { dispatchData, navigation, proucdtsTeaser } from "@/data";
+import { allReviews, dispatchData, navigation, proucdtsTeaser, servicesReviews } from "@/data";
 import ImageHero from '@/components/ImageHero'
 import ProductCardDisplay from '@/components/ProductCardDisplay'
 import TestimonialSection from '@/components/TestimonialSection'
 import FadeInSection from '@/utils/FadeInSection'
+import { reviews } from "@/components/data";
 const items = [
   {
     id: 'account',
@@ -112,7 +113,7 @@ export default function HomePage() {
     <ProductCardDisplay productsSample={proucdtsTeaser} />
   </FadeInSection>  
 
-    <TestimonialSection/>
+    <TestimonialSection reviews={allReviews}/>
      
     <AboutSection />
 
@@ -167,12 +168,12 @@ export default function HomePage() {
             <AddToCart  />
           </div>
 
-          <ProductDetails />
+          {/* <ProductDetails /> */}
           <Policies />
         </div>
       </div>
 
-      <Reviews />
+      {/* <Reviews reviews={allReviews} /> */}
       <RelatedProducts />
       <div className="bg-crema lg:p-smm">
   <div className="flex justify-between flex-col-reverse lg:flex-row">

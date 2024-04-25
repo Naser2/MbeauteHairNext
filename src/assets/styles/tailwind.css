@@ -1,9 +1,9 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import 'tailwindcss/utilities';
-
+@import 'tailwindcss/utilities'; */
+@import "tailwindcss";
 :root{
     --Coco-fontFamily:abchanel-corpo,arial,helvetica,sans-serif;
 
@@ -1590,14 +1590,52 @@ a{border:none;cursor:pointer;font:inherit;color:inherit;text-decoration:none;pad
         border-radius: 50%;
     }
     .testimonial_figure__LeL_Y {
-        background: linear-gradient(135deg,rgba(0,112,243,.3),rgba(248,28,229,.3));
+        background: #76747496;
     }
-    .testimonial_avatar__UW_Ga img {
-        object-fit: contain!important;
+    /* .group-text-change:hover .h1-text-black,
+    .group-text-change:active .h1-text-black {
+      color: black !important;
+      mix-blend-mode: difference; 
+      opacity: 1;
+      z-index: 1;
     }
+    
+    .group-text-change:hover .group-text-grayish,
+    .group-text-change:active .group-text-grayish {
+      color: gray !important;
+      opacity: 1;
+      z-index: 1;
+    }
+
+up-text-grayish.grayish-text {
+    color: gray !important;
+    opacity: 1;
+    z-index: 1;
+  } */
+   
+   /* .group-hover .group-hover\:testimonial_figure__LeL_Y {
+        background: linear-gradient(135deg,rgba(0,112,243,.3),rgba(248,28,229,.3)) !important;
+    } */
+    .h1-text-black{
+    color: black;
+  }
+  
+  .gro
+    .parent:hover .testimonial_figure__LeL_Y {
+        background: linear-gradient(135deg, rgba(0, 112, 243, .3), rgba(248, 28, 229, .3)) 
+      }
+      /* .testimonial_figure__LeL_Y:hover {
+        background-color: white !important;
+      } */
+      .testimonial_figure__LeL_Y>.reviewer-cred-text:hover  {
+        color: black ;
+      }
     .avatar_avatar__3ccqO img {
         width: 100%;
         height: 100%;
+    } 
+     .testimonial_figure__LeL_Y {
+        background: #76747496;
     }
     .image_intrinsic__ulrJk {
         max-width: 100%;
@@ -1622,7 +1660,15 @@ a{border:none;cursor:pointer;font:inherit;color:inherit;text-decoration:none;pad
         position: relative;
     }
     .testimonial_avatar__UW_Ga img {
-        object-fit: contain!important;
+        object-fit: contain !important;
+    }
+    .rounded-l-md {
+        border-top-left-radius: 0.375rem;
+        border-bottom-left-radius: 0.375rem;
+    }
+    .rounded-l-full {
+        border-top-left-radius: 50px;
+        border-bottom-left-radius: 50px;
     }
     
     .avatar_avatar__3ccqO img {
@@ -1634,6 +1680,230 @@ a{border:none;cursor:pointer;font:inherit;color:inherit;text-decoration:none;pad
         height: auto;
     }
 
+    @keyframes fillBackground {
+        0% {
+          width: 0;
+        }
+        100% {
+          width: 100%;
+        }
+      }
+      
+      /* #Fill-in-white {
+        position: relative;
+        overflow: hidden;
+      }
+      
+      #Fill-in-white::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background-color: white;
+        animation: fillBackground 0.5s ease forwards;
+      } */
+      @keyframes fillBackground {
+        0% {
+          width: 0;
+        }
+        100% {
+          width: 100%;
+        }
+      }
+      
+      #Fill-in-white {
+        position: relative;
+        overflow: hidden;
+      }
+      
+      #Fill-in-white::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background-color: rgb(72, 70, 70);
+        animation-duration: 1.5s;
+        animation-fill-mode: forwards;
+        z-index: 0.2;
+        opacity: 0.8
+      }
+      
+      /* #Fill-in-elemen:hover::before {
+        animation-name: fillBackground;
+      }
+
+      #Fill-in-element{
+        position: relative;
+        overflow: hidden;
+      }
+      
+      #Fill-in-element::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background-color: rgb(134, 122, 75);
+        animation-duration: .5s;
+        animation-fill-mode: forwards;
+      } */
+      
+      #Fill-in-white:hover::before {
+        animation-name: fillBackground;
+      }
+
+      
+
+ #fillChild {
+        position: relative;
+        overflow: hidden;
+      }
+      
+      #fillChild::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background-color: rgb(231, 224, 194);
+        animation-duration: 1.5s;
+        animation-fill-mode: forwards;
+        z-index: 0.5;
+        opacity: 0.7
+      }
+      
+      #fillChild:hover::before {
+        animation-name: fillChildBackground;
+        animation-delay: 0.5s; 
+      }
+      
+      @keyframes fillChildBackground {
+        0% {
+          width: 0;
+        }
+        100% {
+          width: 100%;
+        }
+      }
+      
+   
+      
+      #fillChild:not(:hover)::after {
+        animation-name: fillChildBackgroundReverse;
+      }
+      
+      @keyframes fillChildBackgroundReverse {
+        0% {
+          width: 100%;
+        }
+        100% {
+          width: 0;
+        }
+      } 
+
+      
+      .h1-text,
+      .group-text {
+        transition: color 0.3s ease-in-out;
+      }
+      
+      .h1-text.black-text {
+        color: black !important;
+      }
+      
+      .group-text.grayish-text {
+        color: gray !important;
+      }
+      
+      .group-text-change:hover .h1-text,
+      .group-text-change:hover .group-text {
+        color: inherit !important;
+      }
+      
+      .group-text-change:hover .h1-text.black-text,
+      .group-text-change:hover .group-text.grayish-text {
+        color: inherit !important;
+        transition-delay: 0.3s; /* Delay transition to match the animation */
+      }
+      /* #Fill-in-element {
+        position: relative;
+        overflow: hidden;
+      }
+      
+      #Fill-in-element::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background-color: white;
+        animation-duration: 1.5s;
+        animation-fill-mode: forwards;
+      }
+      
+      #Fill-in-element:hover::before {
+        animation-name: fillBackground;
+        animation-delay: 4s; 
+      }
+      
+      @keyframes fillBackground {
+        0% {
+          width: 0;
+        }
+        100% {
+          width: 100%;
+        }
+      }
+      
+      #fillChild {
+        position: relative;
+        overflow: hidden;
+      }
+      
+      #Fill-in-element:not(:hover) #fillChild::before {
+        animation-name: fillChildBackground;
+      }
+      
+      @keyframes fillChildBackground {
+        0% {
+          width: 100%;
+        }
+        100% {
+          width: 0;
+        }
+      } */
+    /* .testimonial_figure__LeL_Y:hover figcaption {
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .testimonial_figure__LeL_Y:hover figcaption {
+        background-color: white;
+      }
+      .testimonial_figure__LeL_Y:hover figcaption::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 100%;
+        background-color: white !important;
+        z-index: -1;
+        animation: fillBackground 0.5s ease forwards;
+      }
+      
+      @keyframes fillBackground {
+        100% {
+          width: 100%;
+        }
+      } */
     /* .testimonial_figure__LeL_Y {
         overflow: hidden;
         width: 100px;

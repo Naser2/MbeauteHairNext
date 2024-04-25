@@ -421,3 +421,31 @@ export const proucdtsTeaser = [
     legalMention: "New in = nouveau."
   }
 ];
+
+export const allReviews = {
+  servicesReviews: [
+    {
+      text: "Nas Design built some React Native mobile screen to be used in our mobile application. It was a smooth process and Nasser was willing to iterate as much to get the product we wanted. Really happy to have worked with NasDesign",
+      author: "Komal Kehar",
+      title: "CEO of Mira Project",
+      image: "https://images.ctfassets.net/e5382hct74si/7mlje7mNxEK4jvgqWKu507/bc064f44b3a0fc67695e354003fb3d1c/image.png",
+      featured: true, // Default value
+    },
+    {
+      text: "NasDesign built a great website for me. I am honestly pleased to have worked with them, Nasser made it very straightforward and easy as a process. Thank you",
+      author: "Amit",
+      title: "Director and Cinematographer - Film Maker",
+      image: "https://images.unsplash.com/photo-1507003211169-cbb51c65aaea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+      featured: true, // Featured review
+    },
+    {
+      text: "Nas Design built some React Native mobile screen to be used in our mobile application. It was a smooth process and Nasser was willing to iterate as much to get the product we wanted. Really happy to have worked with NasDesign",
+      author: "Andrew",
+      title: "Position",
+      image: "https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80",
+      featured: true, // Featured review
+    },
+    // Add more reviews...
+  ],
+  // Other information about reviews can be added here, such as average rating, total count, etc.
+};
